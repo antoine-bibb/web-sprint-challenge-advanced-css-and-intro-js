@@ -229,7 +229,7 @@ function changeArtist(array, index, name){
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
 function getArtistByIndex(array, index) {
-  return `The Artist at index ${artists[0].name } is`;
+  return `The Artist at your index is ${artists[0].name } `;
 }
 console.log(getArtistByIndex(artists[0])); 
     
@@ -242,13 +242,23 @@ console.log(getArtistByIndex(artists[0]));
 died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(array, index){
-for(let i = 0; i < artists.length; i++){
-  let years = 'years'
-  if (years <= '1900' &&  years >= '2000')
-  return artists;
+let names = artists.filter(function(artists){
+  if ( artists.years >= '1900' && artists.years <= '2000'){
+    return artists.name
   }
+})
+return names;
 }
 console.log(get20s(artists));
+
+// function lotsOfArt(arr){
+//   let name = artists.filter(function(artists){
+//     if (artists.paintings > 100){ 
+//       return artists.name }
+//   })
+//   return name;
+//   }
+//     console.log(lotsOfArt(artists));
 
 
 
@@ -264,7 +274,7 @@ console.log(get20s(artists));
 */
 function removeArtist(arr, index) {
   artists.splice(0,1);
-  return artists
+  return artists;
   }
   console.log(removeArtist(artists));
 
@@ -295,13 +305,15 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(array){
 
-  return names;
-
+function lotsOfArt(arr){
+let name = artists.filter(function(artists){
+  if (artists.paintings > 100){ 
+    return artists.name }
+})
+return name;
 }
-console.log(lotsOfArt(artists));
-
+  console.log(lotsOfArt(artists));
 
 // 🎨🎨 STRETCH 🎨🎨//
 

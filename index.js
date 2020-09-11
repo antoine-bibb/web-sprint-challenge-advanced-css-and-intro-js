@@ -229,44 +229,57 @@ function changeArtist(array, index, name){
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
 function getArtistByIndex(array, index) {
-  return `The Artist at index ${artists[0].name } is`;
+  return `The Artist at your index is ${artists[0].name } `;
 }
 console.log(getArtistByIndex(artists[0])); 
     
 
   
-  /**
+  
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and 
 died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
 function get20s(array, index){
-for(let i = 0; i < artists.length; i++){
-  console.log(artists[i]);
-  
-  }get20s('1900-2000');
+let names = artists.filter(function(artists){
+  if ( artists.years >= '1900' && artists.years <= '2000'){
+    return artists.name
+  }
+})
+return names;
+}
+console.log(get20s(artists));
+
+// function lotsOfArt(arr){
+//   let name = artists.filter(function(artists){
+//     if (artists.paintings > 100){ 
+//       return artists.name }
+//   })
+//   return name;
+//   }
+//     console.log(lotsOfArt(artists));
 
 
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
- *     (1) artists array
- *     (2) a number which is the desired index in the array.
- * removeArtist removes an artist from the array at the index and console.logs the length of the remaining dataset.
- * 
- * For example, if removeArtist is invoked with the data and the number 0,
- * it will remove Amedeo Modigliani from our dataset and log the number 19. 
- * 
- * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
-*/
-function removeArtist(index, array) {
-  artists.splice();
-  return artists
-  }
-  removeArtist(2,1);
+      (1) artists array
+      (2) a number which is the desired index in the array.
+  removeArtist removes an artist from the array at the index and console.logs the length of the remaining dataset.
+  
+  For example, if removeArtist is invoked with the data and the number 0,
+  it will remove Amedeo Modigliani from our dataset and log the number 19. 
  
+ Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
+*/
+function removeArtist(arr, index) {
+  artists.splice(0,1);
+  return artists;
+  }
+  console.log(removeArtist(artists));
 
-/**
+
+
 /* Task 6: Create a function called `addArtist` that can accept an object of information and add it to the artists array. Then, add a 21st artist to the array (you) with custom information!👩‍🎨👨‍🎨
 
 For example, you could add the following information: 
@@ -280,13 +293,10 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 At the end, this function should return the new array with information added"*/
 
 function addArtist(id, name, years, genre, nationality,bio){
-  {array.push({id, name, years, genre, nationality, bio});
-  return array;
+  artists.push({id, name, years, genre, nationality, bio});
+  return artists;
   }
-  console.log(addArtist(21, 'Jae Czar', 1990 - , 'Hip-hop', 'African American', 'lorem ipsum'));
-
-  }
-
+console.log(addArtist(21, 'Jae Czar','1990-present', 'Hip-hop', 'African American', 'lorem ipsum'));
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
     (1) artists array 
@@ -295,13 +305,15 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(array){
 
-  return names;
-
+function lotsOfArt(arr){
+let name = artists.filter(function(artists){
+  if (artists.paintings > 100){ 
+    return artists.name }
+})
+return name;
 }
-
-
+  console.log(lotsOfArt(artists));
 
 // 🎨🎨 STRETCH 🎨🎨//
 
